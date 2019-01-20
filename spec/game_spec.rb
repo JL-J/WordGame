@@ -27,4 +27,10 @@ describe Game do
     end
   end
 
+  describe "#check_guess" do
+    it "returns an error when a word with less than 4 characters is entered" do
+      expect{subject.check_guess("tea")}.to raise_error("Please enter a four letter word")
+    end
+  end
+
 end

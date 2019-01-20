@@ -16,4 +16,8 @@ class Game
     guess == @word
   end
 
+  def check_guess(guess)
+    fail "Please enter a four letter word" if guess.length < 4
+  end
+
 end
