@@ -5,14 +5,9 @@ class Game
   end
 
   def calculate_answer(guess)
-    index = 0
     result = []
     @word.chars.each_with_index do |letter, index|
-      if letter == guess[index]
-        result.push(letter)
-      else
-        result.push('_')
-      end
+      letter == guess[index] ? result.push(letter) : result.push('_')
     end
     return result.join("")
   end
