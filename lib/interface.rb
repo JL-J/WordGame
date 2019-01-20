@@ -10,6 +10,7 @@ class Interface
     print "Please enter a four letter word \n "
     guess = gets.chomp
     until @game.correct_guess?(guess) == true
+      @game.check_guess(guess)
       print "#{@game.calculate_answer(guess)} \n"
       guess = gets.chomp
     end
