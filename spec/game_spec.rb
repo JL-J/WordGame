@@ -29,7 +29,19 @@ describe Game do
 
   describe "#check_guess" do
     it "returns an error when a word with less than 4 characters is entered" do
-      expect{subject.check_guess("tea")}.to raise_error("Please enter a four letter word")
+      expect(subject.check_guess("tea")).to eq "Please enter a four letter word"
+    end
+    it "returns an error when a word with more than 4 characters is entered" do
+      expect(subject.check_guess("beautiful")).to eq "Please enter a four letter word"
+    end
+    it "returns an error when no word is entered" do
+      expect(subject.check_guess("")).to eq "Please enter a four letter word"
+    end
+    it "raises an error if a word is entered that contains speaclial characters" do
+      expect(subject.check_guess("ca$h")).to eq "Please only enter lower case letters a-z"
+    end
+    it "raises an error if a word is entered that contains upper case characters" do
+      expect(subject.check_guess("fouR")).to eq "Please only enter lower case letters a-z"
     end
   end
 

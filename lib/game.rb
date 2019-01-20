@@ -17,7 +17,8 @@ class Game
   end
 
   def check_guess(guess)
-    fail "Please enter a four letter word" if guess.length < 4
+    return "Please enter a four letter word" if guess.length != 4
+    return "Please only enter lower case letters a-z" if [/[a-z]+/] != guess
   end
 
 end
