@@ -3,6 +3,15 @@ require 'game'
 describe Game do
   subject { Game.new }
 
+  describe "#correct_guess?" do
+    it "returns true when the guess is correct" do
+      expect(subject.correct_guess?("four")).to eq true
+    end
+    it "returns false when the guess is incorrect" do
+      expect(subject.correct_guess?("pens")).to eq false
+    end
+  end
+
   describe "#calculate_answer" do
     it "returns no letters when the guess and word do not match" do
       expect(subject.calculate_answer("cats")).to eq "____"
@@ -16,8 +25,6 @@ describe Game do
     it "returns the second, third and fourth letter when they match the word" do
       expect(subject.calculate_answer("hour")).to eq "_our"
     end
-    it "returns the full word when the guess is correct" do
-      expect(subject.calculate_answer("four")).to eq "four"
-    end
   end
+
 end
